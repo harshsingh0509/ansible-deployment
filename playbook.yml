@@ -1,0 +1,13 @@
+---
+- name: Set up Web Servers
+  hosts: web_servers
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+
+    - name: Deploy Web Application
+      copy:
+        src: ./index.html
+        dest: /var/www/html/index.html
